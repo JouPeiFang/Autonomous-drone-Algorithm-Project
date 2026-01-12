@@ -28,6 +28,7 @@ if __name__ == "__main__":
     # mst, cost = graph.prim("S")
     # print(cost)
 
+<<<<<<< HEAD
     # for (u, v, cost) in mst.iter():
     #     print(u, v, cost)
     
@@ -35,3 +36,11 @@ if __name__ == "__main__":
     # for i in range(len(stations)):
     #     u = stations[i]
     #     print(f"{u}")
+=======
+    for (u, v, cost) in mst.iter():
+        print(u, v, cost)
+    
+    stations = graph.optimize_charging_station_placement(k=3, R=10)
+
+    print("Charging stations:", stations)
+>>>>>>> 11a1427 (update)
