@@ -1,13 +1,7 @@
 # Autonomous-Drone-Algorithm-Project
 The city is planning to introduce an automated delivery system using autonomous drones. This system is intended to reliably transport packages between distribution centers, charging points, and end customers.
-=======
-# Algorithm_Project
-=======
-# Algorithms and Data Structures Project Report
->>>>>>> 985b843 (Add ReadMe)
 
-Team members: Jou-Pei Fang (Matr. No. 2285577\)
-		          Shiyin Li (Matr. No. 2280709\)
+# Algorithms and Data Structures Project Report
 
 [1. Introduction](#1-introduction)
 
@@ -399,4 +393,3 @@ Let v be the number of nodes and e the number of edges:
 * Each edge can be inserted into the heap once: O(e log e)  
 * Time complexity: O(e log e)  
 * Space complexity: O(v+e)
->>>>>>> 985b843 (Add ReadMe)
