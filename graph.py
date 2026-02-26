@@ -212,11 +212,6 @@ class Graph:
                 if e.restricted:
                     continue
                 
-                # existing = inner.search(e.v)
-                # if existing is None:
-                #     inner.insert(e.v, e.capacity)
-                # else:
-                #     inner.insert(e.v, existing + e.capacity)
                 inner.insert(e.v, e.capacity)
                 
                 back = self._ensure_map(residual, e.v)

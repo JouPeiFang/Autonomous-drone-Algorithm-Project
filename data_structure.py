@@ -74,7 +74,6 @@ class CustomHashMap:
         bucket = self.table[idx]
         return bucket.remove(key)
 
-#### Might want to consider use one of them.####
     def values(self):
         for bucket in self.table:
             for pair in bucket.iter():
