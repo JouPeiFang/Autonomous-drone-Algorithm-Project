@@ -1,6 +1,3 @@
-# Autonomous-Drone-Algorithm-Project
-The city is planning to introduce an automated delivery system using autonomous drones. This system is intended to reliably transport packages between distribution centers, charging points, and end customers.
-
 # Algorithms and Data Structures Project Report
 
 [1. Introduction](#1-introduction)
@@ -68,11 +65,6 @@ In theory, a list is just an ordered collection. There are two main physical rep
 
 To realize the structure of LinkedList, we first define the class Node, where next is the pointer to the next node.
 
-<<<<<<< HEAD
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
->>>>>>> 8b69122 (Initial commit)
-=======
 | class Node:   def \_\_init\_\_(self, data):       self.data \= data       self.next \= None |
 | :---- |
 
