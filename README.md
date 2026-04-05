@@ -1,10 +1,11 @@
 # Algorithms and Data Structures Project Report
 
+
 [1. Introduction](#1-introduction)
 
 [2. Data Structure Prerequisite](#2-data-structure-prerequisite)
 
-[2.1 list](#21-list)
+[2.1 List](#21-list)
 
 [2.1.1 LinkedList](#211-linkedlist)
 
@@ -65,8 +66,7 @@ In theory, a list is just an ordered collection. There are two main physical rep
 
 To realize the structure of LinkedList, we first define the class Node, where next is the pointer to the next node.
 
-| class Node:   def \_\_init\_\_(self, data):       self.data \= data       self.next \= None |
-| :---- |
+`class Node: def __init__(self, data): self.data = data self.next = None`
 
 In our class LinkedList, we have four functions: append, find, remove and iter. The key idea of the Linkedlist is non-contiguous memory, that each node contains the pointer to the next node.  
 The advantage of LinkedList, contrast to an Array-based list is O(1) insertion/deletion; no resizing or shifting; flexible memory usage. The disadvantage of it is that it doesn’t have an index, so O(n) access(must traverse); extra memory for pointers.
@@ -96,8 +96,7 @@ The advantages of array-based lists are O(1) random access; cache friendly, very
 A hash map is necessary to provide O(1) average-time access from a node ID to its associated data (node object or adjacency list). Without a hash map, basic graph operations would degrade to O(n), making algorithms like DFS, Dijkstra, and Max-Flow inefficient. In our code, search value by the key is constantly used, like edges \= self.adj.search(u) , is appeared in Dijkstra and so on.  
 In our Graph class, we need to solve two mapping problems, node\_id to Node object and node\_id to adjacent\_list.
 
-| self.nodes \= CustomHashMap()              \# id → Nodeself.adj \= CustomHashMap()                \# id → list of Edge |
-| :---- |
+`self.nodes = CustomHashMap()  # id → Node | self.adj = CustomHashMap()  # id → list of Edge`
 
 If the node IDs are small continuous integers, it’s also possible to use array indexing to achieve this purpose, but according to the input json file the IDs are like “HUB” or “D1”, it’s only feasible to use the hash map.
 
@@ -105,13 +104,11 @@ If the node IDs are small continuous integers, it’s also possible to use array
 
 We used a hash function like this, which is a classic hash function for keys as strings.
 
-| def custom\_hash(name):   code \= 0   for i, c in enumerate(str(name)):       code+= ord(c)\*(31\*\*i)   return code |
-| :---- |
+`def custom_hash(name): code = 0; for i, c in enumerate(str(name)): code += ord(c) * (31 ** i); return code`
 
 Then we defined the number of buckets is 73, because we assume the number of nodes in input is normally around 50, desired load factor is 0.7, and 73 is the closest prime number to the quotient of the number of elements divided by desired load factor. Here we used LinkedList as each bucket, because it had to handle collisions using separate chaining. We can also use the customArray as buckets, but compared to customArray, LinkedList has less complexity when inserting and deleting(only O(1)), and it doesn’t need to resize frequently. So LinkList is the best choice.
 
-| class CustomHashMap:   def \_\_init\_\_(self, bucket\_count \= 73):       self.bucket\_count \= bucket\_count       self.table \= \[LinkedList() for \_ in range(bucket\_count)\] |
-| :---- |
+`class CustomHashMap: def __init__(self, bucket_count = 73): self.bucket_count = bucket_count; self.table = [LinkedList() for _ in range(bucket_count)]`
 
 ### 2.2.3 Complexity 
 | Function | Average time |
@@ -128,8 +125,7 @@ Then we defined the number of buckets is 73, because we assume the number of nod
 A min-heap is necessary to efficiently implement Dijkstra’s algorithm, because it allows extracting the node with the smallest current distance in O(log V) time. Without a min-heap, shortest-path computation would degrade from O((V+E) log V) to O(V2).  
 In our code where the min-heap is actually used:
 
-| def dijkstra(self, start, target):    pq \= CustomMinHeap()    pq.push(0, (start, \[\])) |
-| :---- |
+`def dijkstra(self, start, target): pq = CustomMinHeap(); pq.push(0, (start, []))`
 
 Here the priority queue is implemented as min-heap, this priority queue is ordered by energy cost, for every iteration, the algorithm tries to find the smallest total energy so far, among all discovered but unvisited nodes.
 
